@@ -1,7 +1,10 @@
 import axios from "axios";
 
+
+const isDev = process.env.NODE_ENV === 'development';
+
 const myAxios = axios.create({
-    baseURL: "http://localhost:8080/api"
+    baseURL: isDev ?  "http://localhost:8080/api" : "http://xiban.kuoge.online/api"
 });
 
 myAxios.defaults.withCredentials = true; // 向后台发送请求携带cookie ，设置为true
